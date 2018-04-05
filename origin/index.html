@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="cn">
+	<head>
+		<title>sport</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<script src="js/libs/three.min.js"></script>
+		<script src="js/libs/jquery-3.2.1.min.js"></script>
+		<script src="js/libs/preloadjs.min.js"></script>
+		<script src="js/libs/soundjs.min.js"></script>
+		<script src="js/libs/Tween.js"></script>
+		<script src="js/libs/FBXLoader.js"></script>
+		<script src="js/libs/inflate.min.js"></script>
+		<script src="js/Parkour.class.js"></script>
+		<script src="js/index.js"></script>
+	</head>
+
+	<body>
+		<div class="box">
+			<!--首页-->
+			<div class="first page">
+				<img src="images/page01_bg.jpg"/>
+				<div class="title"><img src="images/page01_title.png"/></div>
+				<!--<div class="logo"><img src="images/page01_logo.png"/></div>-->
+				<!--<div class="left move_left"><img src="images/page01_left.png"/></div>-->
+				<!--<div class="right move_right"><img src="images/page01_right.png"/></div>-->
+				<div class="btn"><img src="images/page01_btn.png"/></div>
+			</div>
+			<div class="loading">
+				<img src="images/loading_bg.jpg"/>
+				<div class="loading_gif"><img src="images/loading_gif.gif"/></div>
+				<div class="loading_text"></div>
+				<div class="loading_head"><img src="images/loading_head.png"/></div>
+			</div>
+			<!--游戏开始-->
+			<div class="second page">
+				<div id="info">
+					<div class="life">
+						<img src="images/canvas_lifeBg.png"/>
+						<div class="lifeOver">
+							<img src="images/canvas_life.png"/>
+							<div class="lifeBar"><img src="images/canvas_lifeBar.jpg"/></div>
+						</div>
+
+						<!--<span>100</span>-->
+					</div>
+					<div class="time">
+						<div class="time_sec"></div>
+						<div class="time_mao"><img src="images/canvas_numMao.png"/></div>
+						<div class="time_min"></div>
+					</div>
+					<div class="timeIcon"><img src="images/canvas_timeIcon.png"/></div>
+					<div class="dis"></div>
+					<div class="disIcon"><img src="images/canvas_roadIcon.png"/></div>
+
+				</div>
+				<canvas id="game" width="375" height="600"></canvas>
+				<img src="images/mask_opacity.png"/>
+				<!--<div class="personal icons"><img src="images/page02_personal.png"/></div>-->
+				<div class="explain icons"><img src="images/page02_explain.png"/></div>
+				<!--<div class="logo icons"><img src="images/page01_logo.png"/></div>-->
+				<!--<div class="left move_left icons"><img src="images/page02_left.png"/></div>-->
+				<!--<div class="right move_right icons"><img src="images/page02_right.png"/></div>-->
+				<div class="btn icons"><img src="images/page02_btn.png"/></div>
+				<div class="mask_explain">
+					<div class="close"><img src="images/page02_close.png"/></div>
+					<div class="content">
+						<img src="images/page02_text_bg.png"/>
+						<div class="text">
+							<pre>
+
+<span>1、攻略说明</span>
+    每天完成该游戏项目；
+    实行排名制，用户每天参与，根据游
+    戏完成距离获得排名。
+    小提示：补给小人和吃金币可以增加游
+    戏时长哦！
+    排名前100名有机会获取大奖。
+<span>2、游戏时间</span>
+    2017/12/12——2018/01/25
+<span>3、奖项设置</span>
+    游戏奖品：
+    1500张京东优惠券（使用截止日期至
+    12月31日），10台饮水机。
+    奖品发放规则：
+    优惠券：12.11-12.13每天送出200张，
+    12.14-12.31每天送出50张，
+    如果当天没用全部送出完毕，
+    没有送出的优惠券累计到后一天
+    饮水机：10台饮水机12月上线开始
+    每周送2台，1月每周一台。
+
+
+							</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--个人中心 排行榜-->
+			<div class="three page">
+				<img src="images/page03_bg.jpg">
+				<!--<div class="logo"><img src="images/page01_logo.png"/></div>-->
+				<div class="draw"><img src="images/page03_draw.png"/></div>
+				<div class="number"><img src="images/page03_number.png"/></div>
+				<div class="ranking">
+					<!--<img src="images/page03_ranking_bg.png"/>-->
+					<div class="head">
+						<img src="images/page03_head_border.png"/>
+						<div class="header"><img src="images/page03_head.png"/></div>
+					</div>
+					<div class="personal_num">
+						<img src="images/page03_personalNum.png"/>
+						<p><span>45</span>名</p>
+					</div>
+					<div class="content">
+						<div class="rank_number">
+							<img class="rank_bar" src="images/page03_bar.png"/>
+							<div class="number_num">
+								{{number1}}
+								{{number2}}
+								{{number3}}
+							</div>
+							<p class="rank_name"></p>
+							<p class="rank_fraction"></p>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+			<!--游戏成绩-->
+			<div class="four page mask_show">
+				<img src="images/page04_bg.jpg">
+				<!--<div class="logo"><img src="images/page01_logo.png"/></div>-->
+				<div class="draw"><img src="images/page04_draw.png"/></div>
+				<div class="again"><img src="images/page04_again.png"/></div>
+				<div class="title">
+					<img src="images/page04_textBg.png"/>
+				</div>
+				<div class="content">
+					<p class="distance">完成距离达<span>222</span></p>
+					<p class="ranking">今天你是第<span>333</span>名哦</p>
+				</div>
+				<!--<div class="share"><img src="images/page04_share.png"/></div>-->
+				<div class="personal"><img src="images/page04_personal.png"/></div>
+			</div>
+			<!--中奖弹窗-->
+			<div class="mask_prize">
+				<img src="images/mask_black_bg.png"/>
+				<!--未中奖-->
+				<div class="regret mask_show mask_one">
+					<img src="images/mask_noBg.png"/>
+					<!--<div class="okBtn"><img src="images/mask_okBtn.png"/></div>-->
+					<div class="close"><img src="images/mask_close.png"/></div>
+				</div>
+				<!--填写信息-->
+				<div class="information mask_show mask_one">
+					<img src="images/mask_infBg.png"/>
+					<div class="close"><img src="images/mask_close.png"/></div>
+					<div class="fill">
+						<!--<img src="images/mask_information_bg.png"/>-->
+						<p class="name_title">姓名:</p>
+						<p class="phone_title">电话:</p>
+						<p class="address_title">地址:</p>
+
+						<div class="name info">
+							<input type="text" value=""/>
+						</div>
+						<div class="phone info">
+							<input type="text" value="" maxlength="11"/>
+						</div>
+						<div class="address info">
+							<input type="text" value=""/>
+						</div>
+					</div>
+					<div class="submit"><img src="images/mask_receiveBtn.png"/></div>
+
+				</div>
+				<!--京东优惠券-->
+				<div class="coupon mask_show mask_one">
+					<img src="images/mask_yesBg.png"/>
+					<div class="close"><img src="images/mask_close.png"/></div>
+					<div class="title"><img src="images/mask_coupon_title.png"/></div>
+					<div class="receive"><a href="https://sale.jd.com/m/act/EZkD1pse2qCVj5c3.html" target="_blank"><img src="images/mask_receiveBtn.png"/></a></div>
+				</div>
+				<!--饮水机-->
+				<div class="water mask_show mask_one">
+					<img src="images/mask_yesBg.png"/>
+					<div class="close"><img src="images/mask_close.png"/></div>
+					<div class="title"><img src="images/mask_water_title.png"/></div>
+					<div class="receive"><img src="images/mask_receiveBtn.png"/></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

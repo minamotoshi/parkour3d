@@ -1,0 +1,202 @@
+html{font-size:31.25%;font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%; overflow: hidden}
+body,h3,h4,h5,h6,ul,li,ol,div,dl,dt,dd,p,img,a,form{margin:0;padding:0;font-family:"微软雅黑";-webkit-tap-highlight-color:rgba(0,0,0,0);appearance:none;}
+div{width:auto;border: none;outline: none;outline-style: none;}
+body,html{padding:0;margin:0;font-family:Helvetica,STHeiti,Microsoft Yahei;background-color:#fff;overflow:visible;color:#110e15;-webkit-text-size-adjust:100%!important;}
+img{vertical-align:middle;border:0 none;width:100%;display:inline-block;}
+li{list-style:none;list-style-position:outside;}
+a{text-decoration:none;overflow:hidden;opacity:1;outline:none;}
+a:hover{color:#000;text-decoration:none;}
+ul{list-style:none;}
+input,select{vertical-align:middle;padding:0;margin:0;border:none;outline:none;outline-style:none}
+
+.box{width: 100%; position: fixed; margin: 0 auto; max-width: 750px; background: #000; left: 0; top: 0}
+.page{position: absolute; width: 100%; left: 0; top: 0; display: none; z-index: 3}
+
+.loading {position:absolute; top:0; left:0; z-index:3; width: 100%; display: none}
+.loading .loading_text {position:absolute; top:18%; left:0; z-index:2;font: normal 36px "微软雅黑",serif; width: 100%; text-align: center; color: #000}
+.loading .loading_gif{position: absolute; width: 100%; left: 0; top: 0; z-index: 4}
+.loading .loading_head{position: absolute; width: 34.375%; left: 32.96875%; top: 36.27%}
+
+#info {position:absolute; color:#ff0000; width: 100%; height: 100%; left: 0; top: 0; pointer-events:none}
+#info .life{position:absolute; width: 4.84%; left: 5.625%; top: 2.1266%}
+#info .life .lifeOver{position:absolute; width: 61.29%; left: 19.35%; bottom: 4.524%}
+#info .life .lifeOver .lifeBar{position:absolute; width: 100%; left: 0; top: 0; height: 0; overflow: hidden}
+
+#info .time{position:absolute; right: 15.468%; top: 2.5266%; width: 56.25%}
+#info .time .time_min{position:absolute; right: 30%; top: 0; width: 70%}
+#info .time .time_min img{float: right; width: 14.28%}
+#info .time .time_mao{position:absolute; right: 20%; top: 0; width: 10%}
+#info .time .time_sec{position:absolute; right: 0; top: 0; width: 20%}
+#info .time .time_sec img{float: right; width: 50%}
+
+
+#info .timeIcon{position: absolute; width: 7.968%; right: 5.78125%; top: 2.1266%}
+#info .dis{position:absolute; right: 15.468%; top: 6.0266%; width: 56.25%}
+#info .dis img{float: right; width: 10%}
+#info .disIcon{position: absolute; width: 7.4375%; right: 5.3125%; top: 6.188%}
+
+/*#game{z-index: 2}*/
+
+.move_left{
+    animation: moveLeft 1s ease-out infinite forwards;
+    -webkit-animation: moveLeft 1s ease-out infinite forwards;
+    opacity: 1;
+}
+@keyframes moveLeft{
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0,0);
+    }
+}
+@-webkit-keyframes moveLeft{
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0,0);
+    }
+}
+
+.move_right{
+    animation: moveRight 1s ease-out infinite forwards;
+    -webkit-animation: moveRight 1s ease-out infinite forwards;
+    opacity: 1;
+}
+
+@keyframes moveRight{
+    0% {
+        opacity: 0;
+        transform: translate(50%, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0,0);
+    }
+}
+@-webkit-keyframes moveRight{
+    0% {
+        opacity: 0;
+        transform: translate(50%, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0,0);
+    }
+}
+
+
+
+
+/*首页*/
+/*.first{display: block}*/
+.first .title{position: absolute; width: 84.0625%;left: 5.78%; top: 2.11%}
+.first .logo{position: absolute; width: 17.3%;left: 5.3%; top: 3.6%}
+.first .left{position: absolute; width: 17.5%;left: 8.9%; top: 41.7%}
+.first .right{position: absolute; width: 17.5%;left: 73.8%; top: 41.7%}
+.first .btn{position: absolute; width: 39.0625%;left: 5.9375%; top: 45.2%}
+
+/*游戏开始*/
+/*.second{display: block}*/
+.second .personal{position: absolute; width: 20.9%;left: 75.8%; top: 0}
+.second .explain{position: absolute; width: 19.8%;left: 75%; top: 2.16%}
+.second .logo{position: absolute; width: 17.3%;left: 5.3%; top: 3.6%}
+.second .left{position: absolute; width: 16.3%;left: 4.4%; top: 23.7%}
+.second .right{position: absolute; width: 16.3%;left: 79.5%; top: 23.7%}
+.second .btn{position: absolute; width: 39.0625%;left: 29.468%; top: 32.68%}
+.second .mask_explain{position: absolute; z-index: 2; width: 100%; height: 100%; left: 0; top: 0; background: rgba(0,0,0,0.9); display: none}
+.second .mask_explain .close{position: absolute; width: 9.8%; left: 45.2%; top: 39.1%;}
+.second .mask_explain .content{position: absolute; width: 73.1%; left: 13.4%; top: 3.5%;}
+.second .mask_explain .content .text{position: absolute; width: 84.401%; left: 7.269%; top: 14.205%; height: 71.167%; overflow-y: auto;
+    font-size: 2rem; line-height: 1.3636em; color: #fff; overflow-x: hidden}
+.second .mask_explain .content .text span{font-size: 3rem; line-height: 2.5em}
+
+
+/*个人中心排行榜*/
+/*.three{display: block}*/
+.three .logo{position: absolute; width: 17.3%;left: 5.3%; top: 3.6%}
+.three .number{position: absolute; width: 42.96%;left: 5%; top: 85.98%; z-index: 2}
+.three .draw{position: absolute; width: 43.75%;left: 51.4%; top: 85.98%; z-index: 2}
+
+.three .ranking{position: absolute; width: 78.125%;left: 10.468%; top: 12.955%; height: 78.98%}
+.three .ranking .head{position: absolute; width: 9.98%;left: 45.7%; top: 0.8%}
+.three .ranking .head .header{position: absolute; width: 91.36%;left: 4.31%; top: 5%; border-radius: 50%; overflow: hidden}
+
+.three .ranking .personal_num{position: absolute; width: 38.2%; left: 32.8%; top: 7.139%;}
+.three .ranking .personal_num p{position: absolute; width: 100%; left: 0; top: 0; text-align: center; font-size: 2.4rem; line-height: 1.5em; color: #fff}
+
+.three .ranking .content{position: absolute; width: 92.4%; height: 69.5%;left: 5.4%; top: 22.96%; overflow-y: auto; overflow-x: hidden}
+
+.three .ranking .n{float: left; width: 8.0717%;}
+.three .ranking .rank_number{width: 100%; margin-bottom: 0.87%; position: relative}
+.three .ranking .number_num{width: 100%; position: absolute; left: 6.726%; top: 21.052%}
+.three .ranking .rank_name{width: 45%; position: absolute; left: 27.57%; top: 0; text-align: center; font-size: 2.2rem; color: #f76274; line-height: 3.318em;}
+.three .ranking .rank_fraction{width: 14.349%; position: absolute; left: 80.0627%; top: 0; text-align: center; font-size: 2.2rem; color: #f76274; line-height: 3.318em;}
+
+
+/*游戏成绩*/
+/*.four{display: block; }*/
+.four .logo{position: absolute; width: 17.3%;left: 5.3%; top: 3.6%}
+.four .draw{position: absolute; width: 39.0625%;left: 28.9%; top: 58.44%}
+.four .again{position: absolute; width: 39.0625%;left: 28.9%; top: 71%}
+.four .title{position: absolute; width: 76.5625%;left: 11.4%; top: 21.2%}
+
+.four .content{position: absolute; width: 100%;left: 0; top: 38.19%; height: 20%}
+.four .content p{position: absolute; width: 100%;left: 0; text-align: center; color: #3b7f15; font-size: 4.1rem; }
+.four .content p span{font-size: 4.1rem}
+
+.four .content .distance{top: 6%}
+.four .content .ranking{top: 40%}
+
+/*.four .share{position: absolute; width: 20.3125%; left: 75.625%; top: 2.399%}*/
+.four .personal{position: absolute; width: 20.3125%; left: 75.625%; top: 2.399%}
+
+
+
+
+
+
+/*抽奖出现弹窗页面*/
+.mask_show{
+    animation:show 1s cubic-bezier(0, 0, 0.43, 1.46);
+    -webkit-animation:show 1s cubic-bezier(0, 0, 0.43, 1.46)
+}
+@keyframes show {
+    from {transform:scale(0.1);}/*初始状态*/
+    to {transform:scale(1);}/*结束状态*/
+}
+@-webkit-keyframes show{
+    from {transform:scale(0.1);}/*初始状态*/
+    to {transform:scale(1);}/*结束状态*/
+}
+.mask_prize{position: absolute; width: 100%; left: 0; top: 0; z-index: 5; display: none}
+.mask_prize .mask_one{position: absolute; width: 100%; left: 0; top: 19.38%; display: none}
+.mask_prize .mask_one .okBtn{position: absolute; width: 46.166%; left: 26.333%; top: 75.929%}
+.mask_prize .mask_one .close{position: absolute; width: 7.34%; left: 87.166%; top: -3.36%}
+
+.mask_prize .information .fill{position: absolute; width: 58.75%; left: 21.875%; top: 45.22%; height: 44.05%}
+.mask_prize .information .fill .name_title{position: absolute; left: 5.85%; top: 0; font-size: 2.4rem; line-height: 2.58em; color: #fff}
+.mask_prize .information .fill .phone_title{position: absolute; left: 5.85%; top: 36.28%; font-size: 2.4rem; line-height: 2.58em; color: #fff}
+.mask_prize .information .fill .address_title{position: absolute; left: 5.85%; top: 71.68%; font-size: 2.4rem; line-height: 2.58em; color: #fff}
+
+.mask_prize .information .fill .info{position: absolute; width: 77.65%; left: 22.35%; height: 27.43%}
+.mask_prize .information .fill .info input{background: rgba(0,0,0,0); width: 96%; height: 100%; color: #fff; font-size: 2.4rem; margin: 0 2%; line-height: 2.58em;}
+.mask_prize .information .fill .name{top: 0}
+.mask_prize .information .fill .phone{top: 36.28%}
+.mask_prize .information .fill .address{top: 71.68%}
+.mask_prize .information .submit{position: absolute; width: 37.1875%; left: 32.622%; top: 93.27%}
+
+.mask_prize .coupon .title{position: absolute; width: 50.156%; left: 25.3125%; top: 45.132%}
+.mask_prize .coupon .receive{position: absolute; width: 37.1875%; left: 32.622%; bottom: -7.29%}
+
+.mask_prize .water{display: block}
+.mask_prize .water .title{position: absolute; width: 54.375%; left: 22.8125%; top: 43.53%}
+.mask_prize .water .receive{position: absolute; width: 37.1875%; left: 32.622%; bottom: -7.29%}
+
+
+
