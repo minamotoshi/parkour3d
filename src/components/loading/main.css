@@ -1,0 +1,5 @@
+.loading {position:absolute; top:0; left:0; z-index:3; width: 100%;}
+.loading .loading_text {position:absolute; top:18%; left:0; z-index:2;font: normal 36px "微软雅黑",serif; width: 100%; text-align: center; color: #000}
+.loading .loading_gif{position: absolute; width: 100%; left: 0; top: 0; z-index: 4}
+.loading .loading_head{position: absolute; width: 34.375%; left: 32.96875%; top: 36.27%}
+.loading img {width: 100%}
