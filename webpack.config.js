@@ -27,7 +27,8 @@ let config = {
 			{debug: 'info'}
 		),
 		new HtmlWebpackPlugin({
-			title:"parkour"
+			title:"parkour",
+			meta: {viewport: 'width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no'}
 		}),
 		new Webpack.ProvidePlugin({
 			THREE:"three",

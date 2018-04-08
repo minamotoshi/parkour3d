@@ -6,16 +6,15 @@ window.Preload = Preload;
 Preload.load(onProgress, onComplete);
 
 let __loadingBar = new LoadingBar.main();
+let __game = new Parkour.main();
 document.body.appendChild(__loadingBar.getEntity());
 function onProgress(e){
 	__loadingBar.setPercent(e.loaded);
 }
-let __game = null;
+
 function onComplete(e){
-	__game = new Parkour.main();
 	__loadingBar.getEntity().style.display = 'none';
 	document.body.appendChild(__game.getEntity());
 	__game.launch();
-	__game.ready();
 }
 

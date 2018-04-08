@@ -20,7 +20,7 @@ const EVENT = {
 /**
  *	主体
  */
-var main = function(container){
+var main = function(){
 	var _this = this;
 	
 	var WIDTH = 0,
@@ -65,14 +65,11 @@ var main = function(container){
 		__camera = new THREE.PerspectiveCamera( CAMERA.fov, WIDTH / HEIGHT, CAMERA.near, CAMERA.far );
 		__camera.position.set(0, 0, 100);
 		__scene = new THREE.Scene();	//场景
-		var texture = new THREE.Texture(Preload.getResult("sky"));
-		texture.needsUpdate = true;
-		__scene.background = texture;
 		__renderer = new THREE.WebGLRenderer();	//渲染器
 		__renderer.setPixelRatio( window.devicePixelRatio );
 		__renderer.setSize( WIDTH, HEIGHT );
 		__renderer.setClearColor(0x00aaaa);
-		//__renderer.localClippingEnabled = true;
+		TWEEN.autoPlay(true);
 		//__stats = new Stats();
 		//document.body.appendChild(__stats.dom);
 		animate();
@@ -93,6 +90,9 @@ var main = function(container){
 	 *	启动
 	 */
 	_this.launch = function(){
+		var texture = new THREE.Texture(Preload.getResult("sky"));
+		texture.needsUpdate = true;
+		__scene.background = texture;
 		_clock = new THREE.Clock();
 		__field = new Field();
 		__person =  new Person();
@@ -130,7 +130,7 @@ var main = function(container){
 			.yoyo( true )
 			.repeat( Infinity )
 			.easing( TWEEN.Easing.Quadratic.InOut )
-			.onUpdate(function(){
+			.on('update', function(){
 				__camera.position.copy(v1);
 				__camera.lookAt(__person.position);
 			});
@@ -223,7 +223,6 @@ var main = function(container){
 	 */
 	function animate() {
 		requestAnimationFrame( animate );
-		TWEEN.update();
 		if(__stats)__stats.update();
 		if(_isPreping) __prep.update(_clock.getDelta());
 		if(_isRunning){
@@ -240,7 +239,7 @@ var main = function(container){
 		__renderer.clear();
 		__renderer.render( __scene, __camera );
 	}
-	_this.init(container);
+	_this.init();
 };
 
 Object.assign( main.prototype, THREE.EventDispatcher.prototype);
