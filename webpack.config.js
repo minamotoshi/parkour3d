@@ -1,10 +1,11 @@
 const path = require('path');
 const Webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-let obj = {
+let config = {
 	entry: './src/index.js',
 	devServer: {
 		port: 8000,
@@ -16,11 +17,22 @@ let obj = {
 	plugins:[
 		new CleanWebpackPlugin('dist'),
 		new Webpack.HotModuleReplacementPlugin(),
+		new CopyWebpackPlugin(
+			[
+				{
+					from:'./src/components/game/models/tex/',
+					to:'./models/tex/'
+				}
+			],
+			{debug: 'info'}
+		),
 		new HtmlWebpackPlugin({
 			title:"parkour"
 		}),
 		new Webpack.ProvidePlugin({
 			THREE:"three",
+			TWEEN:'es6-tween',
+			//Preload:"./components/game/preload",
 			createjs:"latest-createjs"
 		})
 	],
@@ -37,7 +49,10 @@ let obj = {
 						loader: 'file-loader',
 						options: {
 							regExp: /(\w+)[\/|\\](\w+)\.(png|jpg|gif)/i,
-							name: 'images/[1]-[name].[ext]'
+							name (file){
+								console.log('file is', file);
+								return 'images/[1]-[name].[ext]';
+							}
 						}
 					},
 					{
@@ -72,6 +87,17 @@ let obj = {
 						}
 					}
 				]
+			},
+			{
+				test: /\.(fbx|aeo|obj)$/i,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: 'models/[name].[ext]'
+						}
+					}
+				]
 			}
 		]
 	},
@@ -85,6 +111,6 @@ if(process.argv[3] == 'development'){
 	
 }else if(process.argv[3] == 'production'){
 	let u = new UglifyJsPlugin();
-	obj.plugins.push(u);
+	config.plugins.push(u);
 }
-module.exports = obj;
+module.exports = config;
