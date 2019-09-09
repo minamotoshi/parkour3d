@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+.panel {
+  position:absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index:4;
+  width: 100%;
+  background-color:rgba(0, 0, 0, 0.5);
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+.play img {
+  margin: 50% 10%;
+}
+.play img:last-child {
+  display: none;
+}
+.play img:first-child {
+  display: block;
+}
+.again img:last-child {
+  display: block;
+}
+.again img:first-child {
+  display: none;
+}
