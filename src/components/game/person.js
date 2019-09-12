@@ -1,3 +1,4 @@
+import TWEEN from '@tweenjs/tween.js';
 const EVENT = {
 	PERSON_FAIL: "personFail"
 }
@@ -35,10 +36,11 @@ var Person = function(){
 		var fall = new TWEEN.Tween( __athlete.position )
 			.to( {y:0}, JUMP_DURATION )
 			.easing( TWEEN.Easing.Quadratic.In )
-			.on('complete', function(){ _isJumping = false;_action.play(); });
-		_jump.chainedTweens(fall);
+			.onComplete(function(){ _isJumping = false;_action.play(); });
+		_jump.chain(fall);
 		_turn = new TWEEN.Tween(__athlete.position)
-			.on('complete', function(){ _isTurning = false;});
+			.onUpdate(e=>console.log(e))
+			.onComplete(function(){ _isTurning = false;});
 		lightInit();
 	};
 	function lightInit () {
@@ -134,8 +136,8 @@ var Person = function(){
 	_this.left = function(){
 		if(_isJumping || _isTurning) return;
 		_isTurning = true;
-		var x = __athlete.position.x>0?0:-TURN_UNIT;
-		_turn.to( {x:x}, 500 )
+		let x = __athlete.position.x>0?0:-TURN_UNIT;
+		_turn.to( {x}, 500 )
 			.start();
 	};
 	/**
@@ -144,8 +146,8 @@ var Person = function(){
 	_this.right = function(){
 		if(_isJumping || _isTurning) return;
 		_isTurning = true;
-		var x = __athlete.position.x<0?0:TURN_UNIT;
-		_turn.to( {x:x}, 500 )
+		let x = __athlete.position.x<0?0:TURN_UNIT;
+		_turn.to( {x}, 500 )
 			.start();
 	};
 	_this.init();

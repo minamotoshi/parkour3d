@@ -32,7 +32,7 @@ let config = {
 		}),
 		new Webpack.ProvidePlugin({
 			THREE:"three",
-			TWEEN:'es6-tween',
+			//TWEEN:'@tweenjs/tween.js/src/dist/tween.esm.js',
 			//Preload:"./components/game/preload",
 			createjs:"latest-createjs"
 		})

@@ -1,7 +1,9 @@
+import TWEEN from '@tweenjs/tween.js';
 import Person from './person';
 import Field from './field';
 import Service from './service';
 import Prep from './prep';
+
 /**
  *	版本
  */
@@ -69,7 +71,7 @@ var main = function(){
 		__renderer.setPixelRatio( window.devicePixelRatio );
 		__renderer.setSize( WIDTH, HEIGHT );
 		__renderer.setClearColor(0x00aaaa);
-		TWEEN.autoPlay(true);
+		//TWEEN.autoPlay(true);
 		//__stats = new Stats();
 		//document.body.appendChild(__stats.dom);
 		animate();
@@ -130,7 +132,7 @@ var main = function(){
 			.yoyo( true )
 			.repeat( Infinity )
 			.easing( TWEEN.Easing.Quadratic.InOut )
-			.on('update', function(){
+			.onUpdate(function(){
 				__camera.position.copy(v1);
 				__camera.lookAt(__person.position);
 			});
@@ -223,6 +225,7 @@ var main = function(){
 	 */
 	function animate() {
 		requestAnimationFrame( animate );
+		TWEEN.update();
 		if(__stats)__stats.update();
 		if(_isPreping) __prep.update(_clock.getDelta());
 		if(_isRunning){
